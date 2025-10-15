@@ -1,5 +1,6 @@
 -- Import required modules
 local utils = require "core.utils"
+local tracker    = require "core.tracker"
 local enums = require "data.enums"
 local explorerlite = require "core.explorerlite"
 local settings = require "core.settings"
@@ -12,6 +13,7 @@ local last_unstuck_attempt_time = 0
 local unstuck_cooldown = 30  -- Seconds between unstuck attempts
 local unstuck_attempt_timeout = 5  -- 5 seconds timeout
 local unstuck_attempt_start = 0
+
 
 -- Variables for chest interaction cooldown
 local last_chest_interaction_time = 0
@@ -94,7 +96,7 @@ local task = {
     -- Main execution function for the task
     Execute = function()
         local current_time = get_time_since_inject()
-        
+
         -- Check if player is stuck
         if check_if_stuck() then
             local current_time = get_time_since_inject()
@@ -156,6 +158,7 @@ local task = {
                     
                     -- Update the last interaction time
                     last_chest_interaction_time = current_time
+                    tracker.chest_opened_time = current_time
                     console.print("Chest interaction cooldown started. Next interaction in " .. chest_interaction_cooldown .. " seconds.")
                 else
                     local remaining = chest_interaction_cooldown - (current_time - last_chest_interaction_time)

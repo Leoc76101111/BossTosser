@@ -103,7 +103,9 @@ local task = {
     -- Main execution function for the task
     Execute = function()
         local current_time = get_time_since_inject()
-        
+        local current_os_time = os.time()
+        local wait_time = 5
+        if tracker.chest_opened_time ~= nil and current_os_time < tracker.chest_opened_time + wait_time then return end
         -- Check if player is stuck
         if check_if_stuck() then
             local current_time = get_time_since_inject()
