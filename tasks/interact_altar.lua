@@ -163,7 +163,7 @@ local task = {
             if utils.distance_to(actor_position) <= 2 then
                 console.print("Interacting with altar")
                 interact_object(altar)
-                utility.summon_boss()
+                -- utility.summon_boss() not needed anymore?
                 settings.altar_activated = true
                 boss_summon_time = current_time  -- Update the boss summon time
             end
