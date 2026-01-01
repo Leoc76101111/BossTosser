@@ -47,7 +47,7 @@ local function interact_with_altar()
     for _, actor in pairs(actors) do
         local name = actor:get_skin_name()
         -- Check if the actor is one of the boss altars
-        if name == "Boss_WT4_Varshan" or name == "Boss_WT4_Duriel" or name == "Boss_WT4_PenitantKnight" or name == "Boss_WT4_Andariel" or name == "Boss_WT4_MegaDemon" or name == "Boss_WT4_S2VampireLord" or name == "Boss_WT5_Urivar" or name == "Boss_WT_Belial" then
+        if name == "Boss_WT4_Varshan" or name == "Boss_WT4_Duriel" or name == "Boss_WT4_PenitantKnight" or name == "Boss_WT4_Andariel" or name == "Boss_WT4_MegaDemon" or name == "Boss_WT4_S2VampireLord" or name == "Boss_WT5_Urivar" or name == "Boss_WT_Belial" or name == "Boss_WT5_Harbinger" then
             return actor
         end
     end

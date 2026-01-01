@@ -31,7 +31,7 @@ gui.elements = {
 }
 
 function gui.render()
-    if not gui.elements.main_tree:push(plugin_label .. ' 1.0.1') then return end
+    if not gui.elements.main_tree:push(plugin_label .. ' 1.0.2') then return end
 
     gui.elements.main_toggle:render("Enable", "Enable the bot")
 
